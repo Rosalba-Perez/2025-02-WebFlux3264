@@ -1,3 +1,4 @@
+
 INSERT INTO accounts (account_number, owner_name, balance, active) VALUES
 ('ACC1001', 'Alice', 1000.00, TRUE),
 ('ACC1002', 'Bob', 1500.50, TRUE),

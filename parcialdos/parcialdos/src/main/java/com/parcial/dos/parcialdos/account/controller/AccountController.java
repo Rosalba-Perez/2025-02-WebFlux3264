@@ -22,31 +22,46 @@ public class AccountController {
 
     @PostMapping
     public ResponseEntity<AccountResponseDTO> create(@RequestBody AccountRequestDTO request) {
-        return null;
+        AccountResponseDTO response = service.create(request);
+        return ResponseEntity.ok(response);
     }
 
     @GetMapping
     public ResponseEntity<List<AccountResponseDTO>> getAll() {
-        return null
+        List<AccountResponseDTO> list = service.getAll();
+        return ResponseEntity.ok(list);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<AccountResponseDTO> getById(@PathVariable Long id) {
-        return null;
+        AccountResponseDTO dto = service.getById(id);
+        if (dto == null) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(dto);
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<String> update(@PathVariable Long id, @RequestBody AccountRequestDTO request) {
-        return null;
+        String message = service.update(id, request);
+        if (message.equals("Cuenta no encontrada")) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(message);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) {
-        return null;
+        service.delete(id);
+        return ResponseEntity.noContent().build();
     }
 
-    @GetMapping("/{numeroCuenta}")
+    @GetMapping("/by-number/{numeroCuenta}")
     public ResponseEntity<AccountOwnerBalanceDTO> getByNumeroCuenta(@PathVariable String numeroCuenta) {
-        return null;
+        AccountOwnerBalanceDTO dto = service.findByNumeroCuenta(numeroCuenta);
+        if (dto == null) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(dto);
     }
 }
