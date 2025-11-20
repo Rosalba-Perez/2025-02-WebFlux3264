@@ -1,0 +1,38 @@
+Estrutura de auth
+
+
+Authorization
+
+Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjYXJsb3MucnVpekBlbWFpbC5jb20iLCJpYXQiOjE3NjM2NTcyMjgsImV4cCI6MTc2MzY5MzIyOH0.mKGF1_3JRdXZoyxLTgT3LWCpRn6wsPIRWFreKvr8I4g
+
+🔓 ENDPOINTS PÚBLICOS (Sin JWT)
+AUTENTICACIÓN:
+
+POST /api/auth/login
+
+PRODUCTOS:
+
+GET /api/productos/listar?stockMaximo=15
+
+GET /api/productos
+
+GET /api/productos/{id}
+
+COMENTARIOS:
+
+GET /api/comentarios/listar?fechaDesde=2025-05-01
+
+GET /api/comentarios
+
+🔐 ENDPOINTS PRIVADOS (Requieren JWT)
+CARRITO DE COMPRAS:
+
+POST /api/carrito/crear/{usuarioId}
+
+POST /api/carrito/{carritoId}/agregar/{productoId}?cantidad=1
+
+GET /api/carrito/{carritoId}/productos
+
+GET /api/carrito/usuario/{usuarioId}
+
+DELETE /api/carrito/{carritoId}/vaciar
