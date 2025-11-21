@@ -29,12 +29,13 @@ public class DataLoaderService {
         cargarUsuarios();
         cargarProductosCompletos();
         cargarCategorias();
-        cargarComentarios(); // ¡DESCOMENTADO!
+        cargarComentarios();
     }
 
     private void cargarUsuarios() {
         if (usuarioRepository.count() == 0) {
             List<Usuario> usuarios = Arrays.asList(
+                    // Usuarios originales (5)
                     new Usuario(null, "Juan Pérez", "juan.perez@email.com",
                             passwordEncoder.encode("Qwerty123"), "Carrera 45 #10-20", "Tarjeta de crédito"),
                     new Usuario(null, "Ana Gómez", "ana.gomez@email.com",
@@ -44,10 +45,95 @@ public class DataLoaderService {
                     new Usuario(null, "Sofía Martínez", "sofia.martinez@email.com",
                             passwordEncoder.encode("Clave987"), "Calle 8 #20-30", "Efectivo"),
                     new Usuario(null, "Diego Fernández", "diego.fernandez@email.com",
-                            passwordEncoder.encode("Contra654"), "Carrera 77 #40-60", "Tarjeta débito")
+                            passwordEncoder.encode("Contra654"), "Carrera 77 #40-60", "Tarjeta débito"),
+
+                    // Nuevos usuarios (38 más) - TOTAL 43
+                    new Usuario(null, "Lucía Rodríguez", "lucia.rodriguez@email.com",
+                            passwordEncoder.encode("Lucia123"), "Calle 12 #34-56", "Tarjeta de crédito"),
+                    new Usuario(null, "Andrés Ramírez", "andres.ramirez@email.com",
+                            passwordEncoder.encode("Andres456"), "Carrera 78 #90-12", "PayPal"),
+                    new Usuario(null, "María García", "maria.garcia@email.com",
+                            passwordEncoder.encode("Maria789"), "Avenida 5 #67-89", "Transferencia bancaria"),
+                    new Usuario(null, "Javier Martínez", "javier.martinez@email.com",
+                            passwordEncoder.encode("Javier987"), "Calle 45 #23-67", "Efectivo"),
+                    new Usuario(null, "Carolina López", "carolina.lopez@email.com",
+                            passwordEncoder.encode("Carolina654"), "Carrera 32 #11-22", "Tarjeta débito"),
+
+                    new Usuario(null, "Daniel Castro", "daniel.castro@email.com",
+                            passwordEncoder.encode("Daniel321"), "Calle 89 #45-67", "Tarjeta de crédito"),
+                    new Usuario(null, "Paola Herrera", "paola.herrera@email.com",
+                            passwordEncoder.encode("Paola654"), "Carrera 56 #78-90", "PayPal"),
+                    new Usuario(null, "Esteban Rojas", "esteban.rojas@email.com",
+                            passwordEncoder.encode("Esteban987"), "Avenida 23 #34-45", "Transferencia bancaria"),
+                    new Usuario(null, "Fernanda Sánchez", "fernanda.sanchez@email.com",
+                            passwordEncoder.encode("Fernanda123"), "Calle 67 #89-01", "Efectivo"),
+                    new Usuario(null, "Camilo Torres", "camilo.torres@email.com",
+                            passwordEncoder.encode("Camilo456"), "Carrera 14 #25-36", "Tarjeta débito"),
+
+                    new Usuario(null, "Gabriela Suárez", "gabriela.suarez@email.com",
+                            passwordEncoder.encode("Gabriela789"), "Calle 33 #44-55", "Tarjeta de crédito"),
+                    new Usuario(null, "Raúl Espinosa", "raul.espinosa@email.com",
+                            passwordEncoder.encode("Raul987"), "Carrera 22 #33-44", "PayPal"),
+                    new Usuario(null, "Verónica Mendoza", "veronica.mendoza@email.com",
+                            passwordEncoder.encode("Veronica654"), "Avenida 77 #88-99", "Transferencia bancaria"),
+                    new Usuario(null, "Fabio Jiménez", "fabio.jimenez@email.com",
+                            passwordEncoder.encode("Fabio321"), "Calle 55 #66-77", "Efectivo"),
+                    new Usuario(null, "Ricardo Vargas", "ricardo.vargas@email.com",
+                            passwordEncoder.encode("Ricardo123"), "Carrera 99 #00-11", "Tarjeta débito"),
+
+                    new Usuario(null, "Silvia Gómez", "silvia.gomez@email.com",
+                            passwordEncoder.encode("Silvia456"), "Calle 11 #22-33", "Tarjeta de crédito"),
+                    new Usuario(null, "Martín Aguilar", "martin.aguilar@email.com",
+                            passwordEncoder.encode("Martin789"), "Carrera 44 #55-66", "PayPal"),
+                    new Usuario(null, "Valentina Pérez", "valentina.perez@email.com",
+                            passwordEncoder.encode("Valentina987"), "Avenida 66 #77-88", "Transferencia bancaria"),
+                    new Usuario(null, "José Ramírez", "jose.ramirez@email.com",
+                            passwordEncoder.encode("Jose654"), "Calle 88 #99-00", "Efectivo"),
+                    new Usuario(null, "Natalia Correa", "natalia.correa@email.com",
+                            passwordEncoder.encode("Natalia321"), "Carrera 77 #88-99", "Tarjeta débito"),
+
+                    new Usuario(null, "Julio Fernández", "julio.fernandez@email.com",
+                            passwordEncoder.encode("Julio123"), "Calle 22 #33-44", "Tarjeta de crédito"),
+                    new Usuario(null, "Amanda Castro", "amanda.castro@email.com",
+                            passwordEncoder.encode("Amanda456"), "Carrera 33 #44-55", "PayPal"),
+                    new Usuario(null, "Pedro Duarte", "pedro.duarte@email.com",
+                            passwordEncoder.encode("Pedro789"), "Avenida 44 #55-66", "Transferencia bancaria"),
+                    new Usuario(null, "Isabela Medina", "isabela.medina@email.com",
+                            passwordEncoder.encode("Isabela987"), "Calle 66 #77-88", "Efectivo"),
+                    new Usuario(null, "Óscar Rodríguez", "oscar.rodriguez@email.com",
+                            passwordEncoder.encode("Oscar654"), "Carrera 55 #66-77", "Tarjeta débito"),
+
+                    new Usuario(null, "Cristina Vargas", "cristina.vargas@email.com",
+                            passwordEncoder.encode("Cristina321"), "Calle 99 #00-11", "Tarjeta de crédito"),
+                    new Usuario(null, "Mario Hernández", "mario.hernandez@email.com",
+                            passwordEncoder.encode("Mario123"), "Carrera 11 #22-33", "PayPal"),
+                    new Usuario(null, "Andrea Gutiérrez", "andrea.gutierrez@email.com",
+                            passwordEncoder.encode("Andrea456"), "Avenida 88 #99-00", "Transferencia bancaria"),
+                    new Usuario(null, "Pablo Medina", "pablo.medina@email.com",
+                            passwordEncoder.encode("Pablo789"), "Calle 44 #55-66", "Efectivo"),
+                    new Usuario(null, "Patricia López", "patricia.lopez@email.com",
+                            passwordEncoder.encode("Patricia987"), "Carrera 66 #77-88", "Tarjeta débito"),
+
+                    new Usuario(null, "Gonzalo Espinoza", "gonzalo.espinoza@email.com",
+                            passwordEncoder.encode("Gonzalo654"), "Calle 77 #88-99", "Tarjeta de crédito"),
+                    new Usuario(null, "Elena Herrera", "elena.herrera@email.com",
+                            passwordEncoder.encode("Elena321"), "Carrera 88 #99-00", "PayPal"),
+                    new Usuario(null, "Miguel Rojas", "miguel.rojas@email.com",
+                            passwordEncoder.encode("Miguel123"), "Avenida 99 #00-11", "Transferencia bancaria"),
+                    new Usuario(null, "Estefanía Carrillo", "estefania.carrillo@email.com",
+                            passwordEncoder.encode("Estefania456"), "Calle 00 #11-22", "Efectivo"),
+                    new Usuario(null, "Manuel Vargas", "manuel.vargas@email.com",
+                            passwordEncoder.encode("Manuel789"), "Carrera 12 #23-34", "Tarjeta débito"),
+
+                    new Usuario(null, "Luisa Mejía", "luisa.mejia@email.com",
+                            passwordEncoder.encode("Luisa987"), "Calle 34 #45-56", "Tarjeta de crédito"),
+                    new Usuario(null, "Victoria Torres", "victoria.torres@email.com",
+                            passwordEncoder.encode("Victoria654"), "Carrera 56 #67-78", "PayPal"),
+                    new Usuario(null, "Federico Montoya", "federico.montoya@email.com",
+                            passwordEncoder.encode("Federico321"), "Avenida 78 #89-90", "Transferencia bancaria")
             );
             usuarioRepository.saveAll(usuarios);
-            System.out.println("Usuarios cargados exitosamente");
+            System.out.println("Usuarios cargados exitosamente - Total: " + usuarios.size());
         }
     }
 
@@ -115,7 +201,6 @@ public class DataLoaderService {
         }
     }
 
-
     private void cargarCategorias() {
         if (categoriaRepository.count() == 0) {
             List<Categoria> categorias = Arrays.asList(
@@ -138,9 +223,7 @@ public class DataLoaderService {
             Optional<Usuario> sofia = usuarioRepository.findByCorreoElectronico("sofia.martinez@email.com");
             Optional<Usuario> diego = usuarioRepository.findByCorreoElectronico("diego.fernandez@email.com");
 
-            // Se creo mas usuario debido a que un comentario esta relacionado con el usuario y el producto, si tengo 50 comentario algunos usuarios no existe
-
-
+            // Obtener los nuevos usuarios
             Optional<Usuario> lucia = usuarioRepository.findByCorreoElectronico("lucia.rodriguez@email.com");
             Optional<Usuario> andres = usuarioRepository.findByCorreoElectronico("andres.ramirez@email.com");
             Optional<Usuario> maria = usuarioRepository.findByCorreoElectronico("maria.garcia@email.com");
@@ -163,7 +246,6 @@ public class DataLoaderService {
             Optional<Usuario> jose = usuarioRepository.findByCorreoElectronico("jose.ramirez@email.com");
             Optional<Usuario> natalia = usuarioRepository.findByCorreoElectronico("natalia.correa@email.com");
 
-
             Optional<Usuario> julio = usuarioRepository.findByCorreoElectronico("julio.fernandez@email.com");
             Optional<Usuario> amanda = usuarioRepository.findByCorreoElectronico("amanda.castro@email.com");
             Optional<Usuario> pedro = usuarioRepository.findByCorreoElectronico("pedro.duarte@email.com");
@@ -175,7 +257,6 @@ public class DataLoaderService {
             Optional<Usuario> pablo = usuarioRepository.findByCorreoElectronico("pablo.medina@email.com");
             Optional<Usuario> patricia = usuarioRepository.findByCorreoElectronico("patricia.lopez@email.com");
 
-
             Optional<Usuario> gonzalo = usuarioRepository.findByCorreoElectronico("gonzalo.espinoza@email.com");
             Optional<Usuario> elena = usuarioRepository.findByCorreoElectronico("elena.herrera@email.com");
             Optional<Usuario> miguel = usuarioRepository.findByCorreoElectronico("miguel.rojas@email.com");
@@ -184,7 +265,6 @@ public class DataLoaderService {
             Optional<Usuario> luisa = usuarioRepository.findByCorreoElectronico("luisa.mejia@email.com");
             Optional<Usuario> victoria = usuarioRepository.findByCorreoElectronico("victoria.torres@email.com");
             Optional<Usuario> federico = usuarioRepository.findByCorreoElectronico("federico.montoya@email.com");
-
 
             // Obtener productos por nombre
             List<Producto> productos = productoRepository.findAll();
@@ -199,7 +279,6 @@ public class DataLoaderService {
             Producto camara = productos.stream().filter(p -> p.getNombre().equals("Cámara")).findFirst().orElse(null);
             Producto smartwatch = productos.stream().filter(p -> p.getNombre().equals("Smartwatch")).findFirst().orElse(null);
 
-
             Producto sillaGamer = productos.stream().filter(p -> p.getNombre().equals("Silla Gamer")).findFirst().orElse(null);
             Producto microondas = productos.stream().filter(p -> p.getNombre().equals("Microondas")).findFirst().orElse(null);
             Producto refrigerador = productos.stream().filter(p -> p.getNombre().equals("Refrigerador")).findFirst().orElse(null);
@@ -210,7 +289,6 @@ public class DataLoaderService {
             Producto videocamara = productos.stream().filter(p -> p.getNombre().equals("Videocámara")).findFirst().orElse(null);
             Producto tvLed = productos.stream().filter(p -> p.getNombre().equals("TV LED")).findFirst().orElse(null);
             Producto bateriaExterna = productos.stream().filter(p -> p.getNombre().equals("Batería Externa")).findFirst().orElse(null);
-
 
             Producto discoDuro = productos.stream().filter(p -> p.getNombre().equals("Disco Duro")).findFirst().orElse(null);
             Producto memoriaUsb = productos.stream().filter(p -> p.getNombre().equals("Memoria USB")).findFirst().orElse(null);
@@ -223,7 +301,6 @@ public class DataLoaderService {
             Producto procesador = productos.stream().filter(p -> p.getNombre().equals("Procesador")).findFirst().orElse(null);
             Producto motherboard = productos.stream().filter(p -> p.getNombre().equals("Motherboard")).findFirst().orElse(null);
 
-
             Producto memoriaRam = productos.stream().filter(p -> p.getNombre().equals("Memoria RAM")).findFirst().orElse(null);
             Producto fuenteSolar = productos.stream().filter(p -> p.getNombre().equals("Fuente Solar")).findFirst().orElse(null);
             Producto controlRemoto = productos.stream().filter(p -> p.getNombre().equals("Control Remoto")).findFirst().orElse(null);
@@ -234,7 +311,6 @@ public class DataLoaderService {
             Producto relojDigital = productos.stream().filter(p -> p.getNombre().equals("Reloj Digital")).findFirst().orElse(null);
             Producto lucesLed = productos.stream().filter(p -> p.getNombre().equals("Luces LED")).findFirst().orElse(null);
             Producto estabilizador = productos.stream().filter(p -> p.getNombre().equals("Estabilizador")).findFirst().orElse(null);
-
 
             Producto cargadorInalambrico = productos.stream().filter(p -> p.getNombre().equals("Cargador Inalámbrico")).findFirst().orElse(null);
             Producto hddExterno = productos.stream().filter(p -> p.getNombre().equals("HDD Externo")).findFirst().orElse(null);
@@ -247,8 +323,16 @@ public class DataLoaderService {
             Producto smartPlug = productos.stream().filter(p -> p.getNombre().equals("Smart Plug")).findFirst().orElse(null);
             Producto timbreInteligente = productos.stream().filter(p -> p.getNombre().equals("Timbre Inteligente")).findFirst().orElse(null);
 
-
+            // Verificar que todos los usuarios y productos existen antes de crear comentarios
             if (juan.isPresent() && ana.isPresent() && carlos.isPresent() && sofia.isPresent() && diego.isPresent() &&
+                    lucia.isPresent() && andres.isPresent() && maria.isPresent() && javier.isPresent() && carolina.isPresent() &&
+                    daniel.isPresent() && paola.isPresent() && esteban.isPresent() && fernanda.isPresent() && camilo.isPresent() &&
+                    gabriela.isPresent() && raul.isPresent() && veronica.isPresent() && fabio.isPresent() && ricardo.isPresent() &&
+                    silvia.isPresent() && martin.isPresent() && valentina.isPresent() && jose.isPresent() && natalia.isPresent() &&
+                    julio.isPresent() && amanda.isPresent() && pedro.isPresent() && isabela.isPresent() && oscar.isPresent() &&
+                    cristina.isPresent() && mario.isPresent() && andrea.isPresent() && pablo.isPresent() && patricia.isPresent() &&
+                    gonzalo.isPresent() && elena.isPresent() && miguel.isPresent() && estefania.isPresent() && manuel.isPresent() &&
+                    luisa.isPresent() && victoria.isPresent() && federico.isPresent() &&
                     laptop != null && smartphone != null && tablet != null && auriculares != null && teclado != null) {
 
                 List<Comentario> comentarios = Arrays.asList(
@@ -263,7 +347,6 @@ public class DataLoaderService {
                         new Comentario(null, camara, sofia.get(), "Increíble calidad de imagen; fotos súper nítidas.", "15/05/2025"),
                         new Comentario(null, smartwatch, diego.get(), "Buena batería; pero la pantalla no es muy brillante.", "18/05/2025"),
 
-
                         new Comentario(null, sillaGamer, lucia.get(), "Comodidad espectacular; perfecto para largas sesiones de juego.", "20/05/2025"),
                         new Comentario(null, microondas, andres.get(), "Calienta bien pero hace mucho ruido.", "22/05/2025"),
                         new Comentario(null, refrigerador, maria.get(), "Espacioso y enfría rápido; muy recomendado.", "24/05/2025"),
@@ -274,7 +357,6 @@ public class DataLoaderService {
                         new Comentario(null, videocamara, esteban.get(), "Perfecta para grabaciones profesionales.", "3/06/2025"),
                         new Comentario(null, tvLed, fernanda.get(), "Imagen excelente pero el sonido podría mejorar.", "5/06/2025"),
                         new Comentario(null, bateriaExterna, camilo.get(), "Carga bien pero es un poco pesada.", "7/06/2025"),
-
 
                         new Comentario(null, discoDuro, gabriela.get(), "Gran capacidad de almacenamiento; funciona rápido.", "9/06/2025"),
                         new Comentario(null, memoriaUsb, raul.get(), "Buen tamaño pero la velocidad de transferencia es baja.", "11/06/2025"),
@@ -287,7 +369,6 @@ public class DataLoaderService {
                         new Comentario(null, procesador, jose.get(), "Rendimiento impecable; ideal para gaming y diseño.", "25/06/2025"),
                         new Comentario(null, motherboard, natalia.get(), "Buenas prestaciones pero la instalación fue complicada.", "27/06/2025"),
 
-
                         new Comentario(null, memoriaRam, julio.get(), "Expande muy bien el rendimiento del sistema.", "29/06/2025"),
                         new Comentario(null, fuenteSolar, amanda.get(), "Energía confiable pero la batería es pequeña.", "1/07/2025"),
                         new Comentario(null, controlRemoto, pedro.get(), "Fácil de usar; reconoce muchos dispositivos.", "3/07/2025"),
@@ -298,7 +379,6 @@ public class DataLoaderService {
                         new Comentario(null, relojDigital, sofia.get(), "Pantalla atractiva pero la batería dura poco.", "13/07/2025"),
                         new Comentario(null, lucesLed, andrea.get(), "Buenas opciones de colores; buen diseño.", "15/07/2025"),
                         new Comentario(null, estabilizador, pablo.get(), "Protege bien contra variaciones de voltaje.", "17/07/2025"),
-
 
                         new Comentario(null, cargadorInalambrico, patricia.get(), "Carga rápido pero requiere posicionamiento preciso.", "19/07/2025"),
                         new Comentario(null, hddExterno, gonzalo.get(), "Mucho espacio; resistente y confiable.", "21/07/2025"),
